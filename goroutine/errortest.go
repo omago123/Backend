@@ -11,18 +11,18 @@ import (
 
 var wsg sync.WaitGroup // WaitGroup을 전역변수로 설정
 
-func main() {
-	rand.Seed(time.Now().UnixNano())
+// //func main() {
+// 	rand.Seed(time.Now().UnixNano())
 
-	//작업 2개추가
-	wsg.Add(2)
-	fork := &sync.Mutex{} //포크와 수저 뮤텍스
-	spoon := &sync.Mutex{}
+// 	//작업 2개추가
+// 	wsg.Add(2)
+// 	fork := &sync.Mutex{} //포크와 수저 뮤텍스
+// 	spoon := &sync.Mutex{}
 
-	go diningProblem("A", fork, spoon, "포크", "수저") // A는 포크 먼저
-	go diningProblem("B", spoon, fork, "수저", "포크") // B는 수저 먼저
-	wsg.Wait()                                     // 작업이 끝날때까지 기다리기
-}
+// 	go diningProblem("A", fork, spoon, "포크", "수저") // A는 포크 먼저
+// 	go diningProblem("B", spoon, fork, "수저", "포크") // B는 수저 먼저
+// 	wsg.Wait()                                     // 작업이 끝날때까지 기다리기
+// }
 
 func diningProblem(name string, first, second *sync.Mutex, firstName, secondName string) {
 	for i := 0; i < 100; i++ {
