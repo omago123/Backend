@@ -1,8 +1,10 @@
+```solidity
 // SPDX-License-Identifier:GPL-30
 pragma solidity >= 0.7.0 < 0.9.0;
 
 
 contract lec17{
+    // key => value 
     mapping(string=>uint256) private priceList;
     mapping(uint256=>string) private nameList;
     mapping(uint256=>uint256) private ageList;
@@ -33,3 +35,6 @@ contract lec17{
     }
     
 }
+```
+
+출처 : D_One 솔리디티 강좌 17강-Mapping
