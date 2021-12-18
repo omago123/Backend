@@ -16,6 +16,7 @@ const promise = new Promise((resolve, reject) => {
 
 
 // 2. Consumers: then, catch, finally
+// if Promise object works without reject, value is ellie.
 promise
     .then((value) => {
         console.log(value);

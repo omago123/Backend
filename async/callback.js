@@ -23,14 +23,17 @@ printWithDelay(() => console.log('async callback'), 3000);
 
 class UserStorage{
   loginUser(id, password, onSuccess, onError){
+    // after 2 seconds login will be done.
     setTimeout(() =>{
       if (
         (id === 'ellie' && password === 'dream') ||
         (id === 'coder' && password === 'academy')
     ) {
+      // if success onSuccess will be called
       onSuccess(id);
     } else {
-      onError(new Error('not found'));
+      // if failed  onError will be called
+      onError(new Error('not found'))
     }
   }, 2000);
 }
@@ -38,9 +41,10 @@ class UserStorage{
   getRoles(user, onSuccess, onError) {
     setTimeout(() => {
       if (user === 'ellie') {
-        onSuccess({ name: 'ellie', role: 'admin' });
+        // json value
+        onSuccess({ name: 'ellie', role: 'admin' })
       } else {
-        onError(new Error('no access'));
+        onError(new Error('no access'))
       }
     }, 1000);
   }
