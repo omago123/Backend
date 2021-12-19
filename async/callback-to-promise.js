@@ -15,7 +15,7 @@ class UserStorage{
     
   }
   
-    getRoles(user, onSuccess, onError) {
+    getRoles(user) {
         return new Promise((resolve,reject) => {
             setTimeout(() => {
                 if (user === 'ellie') {

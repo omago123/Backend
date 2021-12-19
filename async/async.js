@@ -23,23 +23,60 @@ async function getApple() {
     return '🍎'
 }
  
-async function getBanana() {
-    await delay(1000);
-    return '🍌'
+// async function getBanana() {
+//     await delay(1000);
+//     return '🍌'
+// }
+
+function getBanana(){
+    return delay(2000)
+    .then(() => '🍌');
 }
 
-// function getBanana(){
-//     return delay(3000)
-//     .then(() => '🍌');
+
+// function pickFruits() {
+//     return getApple().then(apple => {
+//         return getBanana().then(banana => `${apple} +${banana}`);
+//     });
+// }
+
+
+
+// async function pickFruits() {
+//     const apple = await getApple();
+//     const banana = await getBanana();
+//     return `${apple} + ${banana}`;
 // }
 
 async function pickFruits() {
-    const apple = await getApple();
-    const banana = await getBanana();
-    return `${apple} + ${banana}`;
+    const applePromise = getApple();
+    const bananaPromise = getBanana();
+    const apple = await applePromise;
+    const banana = await bananaPromise;
+    return `${apple} + ${banana}`
 }
 
 pickFruits().then(console.log);
+
+// 3. userful Promise APIs
+function pickAllFruits(){
+    // wait until all promise object in array  and collect all.
+    return Promise.all([getApple(), getBanana()]).then(fruits =>
+        // join : array -> string
+        fruits.join(' + ')
+    );
+}
+
+pickAllFruits().then(console.log);
+
+function pickOnlyOne() {
+    return Promise.rack([getApple(), getBanana()]);
+}
+
+pickOnlyOne().then(console.log);
+
+
+
 
    
  
