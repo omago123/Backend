@@ -51,7 +51,6 @@ public class Block {
     }
 
 
-
     public void getInformation() {
         System.out.println("-----------------------------");
         System.out.println("블록 번호: "+getBlockID());
@@ -61,6 +60,7 @@ public class Block {
         System.out.println("블록 해시: " + getBlockHash());
     }
 
+    // nonce
     public String getBlockHash(){
         return Util.getHash(nonce + data + previousBlockHash);
     }

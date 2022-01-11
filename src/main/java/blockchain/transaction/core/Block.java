@@ -10,7 +10,7 @@ public class Block {
     private int blockID;
     private String previousBlockHash;
     private int nonce;
-    private ArrayList<Transaction > transactionList;
+    private ArrayList <Transaction> transactionList;
 
 
     public int getBlockID() {
@@ -44,7 +44,6 @@ public class Block {
         this.previousBlockHash = previousBlockHash;
         this.nonce  = nonce;
         this.transactionList = transactionList;
-
     }
 
     public void addTransaction(Transaction transaction){
@@ -58,6 +57,7 @@ public class Block {
         System.out.println("이전 해시: "+getPreviousBlockHash());
         System.out.println("채굴 변수 값: " + getNonce());
         System.out.println("트랜잭션 개수: " + transactionList.size() + "개");
+        // 트랜잭션 개수만큼 출력된다.
         for (int i = 0; i < transactionList.size(); i++) {
             System.out.println(transactionList.get(i).getInformation());
         }
@@ -71,7 +71,7 @@ public class Block {
             transactionInformations += transactionList;
 
         }
-        return Util.getHash(nonce + previousBlockHash);
+        return Util.getHash(nonce + previousBlockHash+transactionInformations);
     }
     
     public void mine(){

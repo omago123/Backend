@@ -10,6 +10,7 @@ public class BlockChainStarter {
         block1.mine();
         block1.getInformation();
 
+        // Current block includes previousBlockHash.
         Block block2 = new Block(2, block1.getBlockHash(), 0,new ArrayList<>());
         block2.addTransaction(new Transaction("김동길", "안성빈", 1.5));
         block2.addTransaction(new Transaction("이영식", "안성빈", 0.7));
@@ -26,7 +27,5 @@ public class BlockChainStarter {
         block4.addTransaction(new Transaction("윤동수", "강동구", 1.3));
         block4.mine();
         block4.getInformation();
-
-
     }
 }
